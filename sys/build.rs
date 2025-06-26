@@ -8,13 +8,13 @@ fn main() {
 
     let mut cmake_config = cmake::Config::new(whisper_cpp_path.clone());
     cmake_config.define("BUILD_SHARED_LIBS", "OFF");
-    cmake_config.define("WHISPER_OPENMP", "OFF");
-    println!("cargo:warning=--- OpenMP support is explicitly disabled. ---");
-
+    
     let target = env::var("TARGET").unwrap();
     if target == "aarch64-linux-android" {
         println!("cargo:warning=--- Enabling NEON for aarch64-linux-android ---");
         cmake_config.define("WHISPER_NEON", "ON");
+        cmake_config.define("WHISPER_OPENMP", "ON");
+        cmake_config.define("GGML_VULKAN", "ON");
 
         let manifest_dir = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap());
         let whisper_rs_root = manifest_dir.parent().unwrap(); 
