@@ -20,21 +20,21 @@ fn main() {
         println!("cargo:rustc-link-search=native={}", whisper_build_path.join("lib").display());
         println!("cargo:rustc-link-search=native={}", whisper_build_path.join("src").display());
         println!("cargo:rustc-link-search=native={}", whisper_build_path.join("ggml/src").display());
-        println!("cargo:rustc-link-search=native={}", whisper_build_path.join("ggml/src/ggml-blas").display());
-        println!("cargo:rustc-link-search=native={}", whisper_build_path.join("ggml/src/ggml-vulkan").display());
+        // println!("cargo:rustc-link-search=native={}", whisper_build_path.join("ggml/src/ggml-blas").display());
+        // println!("cargo:rustc-link-search=native={}", whisper_build_path.join("ggml/src/ggml-vulkan").display());
         println!("cargo:rustc-link-search=native={}", openblas_lib_path.display());
         println!("cargo:rustc-link-search=native={}", zlib_lib_path.display());
         
         println!("cargo:rustc-link-lib=static=whisper");
-        println!("cargo:rustc-link-lib=static=ggml-vulkan");
-        println!("cargo:rustc-link-lib=static=ggml-blas");
-        println!("cargo:rustc-link-lib=static=openblas");
+        // println!("cargo:rustc-link-lib=static=ggml-vulkan");
+        // println!("cargo:rustc-link-lib=static=ggml-blas");
+        // println!("cargo:rustc-link-lib=static=openblas");
         println!("cargo:rustc-link-lib=static=ggml"); 
         println!("cargo:rustc-link-lib=static=ggml-cpu");
         println!("cargo:rustc-link-lib=static=ggml-base");
         println!("cargo:rustc-link-lib=static=z");
         
-        println!("cargo:rustc-link-lib=dylib=vulkan");
+        // println!("cargo:rustc-link-lib=dylib=vulkan");
         println!("cargo:rustc-link-lib=dylib=omp");
         println!("cargo:rustc-link-lib=log");
         println!("cargo:rustc-link-lib=c++_shared");
